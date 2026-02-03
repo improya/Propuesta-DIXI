@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - DIXI | Materiales para Empaque</title>
+    <link rel="icon" href="dixilog.jpeg" type="image/jpg">
+    <style>
+        /* ===== VARIABLES CSS ===== */
+        :root {
+            --primary-color: #db1616;
+            --primary-dark: #a81010;
+            --primary-light: #e63939;
+            --secondary-color: #333333;
+            --light-gray: #f5f5f5;
+            --medium-gray: #e0e0e0;
+            --dark-gray: #666666;
+            --white: #ffffff;
+            --black: #1b1b1b;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.15);
+            --shadow-large: 0 15px 35px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius: 12px;
+            --border-radius-sm: 8px;
+            --border-radius-lg: 20px;
+            --section-padding: 100px 0;
+            --header-height: 80px;
+            --card-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            --card-shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.15);
+            --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ===== RESET Y CONFIGURACIÓN GENERAL ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--secondary-color);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== TIPOGRAFÍA ===== */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 3.8rem;
+            letter-spacing: -0.5px;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 2rem;
+        }
+
+        h4 {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        /* ===== BOTONES ===== */
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 36px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: var(--white);
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .button:hover::before {
+            left: 0;
+        }
+
+        .button:active {
+            transform: translateY(-1px);
+        }
+
+        .whatsapp-icon {
+            font-size: 1.3rem;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-pequeño {
+            height: 50px;
+            width: auto;
+            transition: var(--transition);
+        }
+
+        .logo-pequeño:hover {
+            transform: scale(1.05);
+        }
+
+        /* ===== NAVEGACIÓN ===== */
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+
+        nav a {
+            font-weight: 600;
+            font-size: 1.05rem;
+            position: relative;
+            padding: 8px 0;
+            color: var(--secondary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a.active::after {
+            width: 100%;
+        }
+
+        .email-link {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: var(--white) !important;
+            padding: 10px 20px !important;
+            border-radius: var(--border-radius-sm);
+        }
+
+        .email-link:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .email-link::after {
+            display: none;
+        }
+
+        /* ===== MENÚ MÓVIL ===== */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
+        /* ===== HERO DE PRODUCTOS ===== */
+        #productos-hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.85)), url('productos-hero.jpg') center/cover no-repeat fixed;
+            color: var(--white);
+            text-align: center;
+            padding-top: var(--header-height);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #productos-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(219, 22, 22, 0.2), transparent 60%);
+            z-index: 0;
+        }
+
+        #productos-hero .container {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        #productos-hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        #productos-hero h4 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        #productos-hero .hero-description {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.8);
+            animation: fadeInUp 1s ease-out 0.6s both;
+            line-height: 1.6;
+        }
+
+        /* ===== ANIMACIONES ===== */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== GALERÍA ===== */
+        #galeria {
+            padding: 120px 0 80px;
+            background-color: var(--light-gray);
+            min-height: 100vh;
+        }
+
+        #galeria .container {
+            background-color: var(--white);
+            padding: 50px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-top: 40px;
+        }
+
+        #galeria h1 {
+            font-size: 2.8rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        #galeria h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--primary-color);
+        }
+
+        #galeria h2, #galeria h3 {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        #galeria h2 {
+            color: var(--secondary-color);
+        }
+
+        #galeria h3 {
+            color: var(--dark-gray);
+            font-weight: 400;
+        }
+
+        /* ===== SECCIÓN HEADER ===== */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: var(--dark-gray);
+            margin-top: 10px;
+        }
+
+        /* ===== MARCAS ===== */
+        .marcas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .marca-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .marca-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+        }
+
+        .marca-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .marca-card img {
+            height: 80px;
+            width: auto;
+            margin-bottom: 20px;
+            filter: grayscale(100%);
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .marca-card:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .marca-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+
+        .marca-card p {
+            color: var(--dark-gray);
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* ===== ESPECIFICACIONES ===== */
+        .specs-container {
+            margin: 80px 0;
+            padding: 60px 0;
+            background: linear-gradient(135deg, var(--light-gray) 0%, #f8f9fa 100%);
+            border-radius: var(--border-radius-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .specs-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .specs-category {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .specs-category:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+            color: var(--primary-color);
+        }
+
+        .specs-category h3 {
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+        }
+
+        .specs-category ul {
+            list-style: none;
+        }
+
+        .specs-category li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+
+        .specs-category li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* ===== PRODUCTOS ===== */
+        .productos-header {
+            text-align: center;
+            margin: 80px 0 40px;
+        }
+
+        .categorias-filtro {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+            padding: 20px;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .filtro-btn {
+            padding: 12px 25px;
+            background: var(--light-gray);
+            border: 2px solid var(--medium-gray);
+            border-radius: 50px;
+            font-weight: 600;
+            color: var(--dark-gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filtro-btn:hover {
+            background: rgba(219, 22, 22, 0.1);
+            border-color: var(--primary-light);
+            color: var(--primary-color);
+        }
+
+        .filtro-btn.active {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            border-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .productos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .producto-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition-slow);
+            opacity: 1;
+            transform: translateY(0);
+            cursor: pointer;
+        }
+
+        .producto-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .producto-img {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f5f5f5, #e8e8e8);
+        }
+
+        .producto-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 20px;
+            transition: var(--transition-slow);
+        }
+
+        .producto-card:hover .producto-img img {
+            transform: scale(1.05);
+        }
+
+        .producto-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(transparent 60%, rgba(0, 0, 0, 0.7));
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 20px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .producto-card:hover .producto-overlay {
+            opacity: 1;
+        }
+
+        .ver-detalle {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .ver-detalle:hover {
+            background: var(--primary-dark);
+            transform: scale(1.05);
+        }
+
+        .producto-info {
+            padding: 25px;
+        }
+
+        .producto-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+            line-height: 1.4;
+        }
+
+        .producto-info p {
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .producto-categoria {
+            display: inline-block;
+            padding: 5px 15px;
+            background: rgba(219, 22, 22, 0.1);
+            color: var(--primary-color);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== CTA CATÁLOGO ===== */
+        .cta-catalogo {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: var(--white);
+            padding: 60px 40px;
+            border-radius: var(--border-radius-lg);
+            margin: 80px 0;
+            text-align: center;
+            box-shadow: var(--shadow-large);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-catalogo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('pattern.png') center/cover;
+            opacity: 0.1;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-catalogo h2 {
+            color: var(--white);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-catalogo h2::after {
+            display: none;
+        }
+
+        .cta-catalogo p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .pdf-button {
+            background: var(--white);
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            padding: 18px 40px;
+            margin-bottom: 20px;
+        }
+
+        .pdf-button:hover {
+            color: var(--primary-dark);
+        }
+
+        .pdf-icon {
+            font-size: 1.3rem;
+        }
+
+        .cta-note {
+            font-size: 0.9rem !important;
+            color: rgba(255, 255, 255, 0.7) !important;
+            margin: 0;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 70px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 60px;
+            margin-bottom: 50px;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            height: 50px;
+            width: auto;
+        }
+
+        .footer-tagline {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .link-group h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .link-group a {
+            display: block;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 12px;
+            transition: var(--transition);
+        }
+
+        .link-group a:hover {
+            color: var(--primary-light);
+            transform: translateX(5px);
+        }
+
+        .footer-social {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .footer-social h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 10px;
+        }
+
+        .credits {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5) !important;
+        }
+
+        .privacy-link {
+            color: var(--primary-light);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .privacy-link:hover {
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1200px) {
+            h1 {
+                font-size: 3.5rem;
+            }
+            
+            h2 {
+                font-size: 2.5rem;
+            }
+            
+            .productos-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            #productos-hero h1 {
+                font-size: 3.2rem;
+            }
+            
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .categorias-filtro {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 15px;
+            }
+            
+            .filtro-btn {
+                white-space: nowrap;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .footer-links {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            #productos-hero {
+                min-height: 70vh;
+            }
+            
+            #productos-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            #productos-hero h4 {
+                font-size: 1.4rem;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            nav {
+                position: fixed;
+                top: var(--header-height);
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding: 30px 20px;
+                gap: 25px;
+                box-shadow: var(--shadow);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+            
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .email-link {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .marcas-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .productos-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+            
+            .cta-catalogo {
+                padding: 40px 20px;
+            }
+            
+            .cta-catalogo h2 {
+                font-size: 2rem;
+            }
+            
+            .footer-links {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                width: 95%;
+                padding: 0 15px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            #productos-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .productos-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .producto-img {
+                height: 180px;
+            }
+            
+            .producto-info {
+                padding: 20px;
+            }
+            
+            .cta-catalogo {
+                margin: 50px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header y Navegación -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="dixilog1.jpeg" alt="Logotipo DIXI" class="logo-pequeño">
+                </a>
+            </div>
+            <nav>
+                <a href="index.html#hero">Inicio</a>
+                <a href="index.html#somos-proya">Quiénes Somos</a>
+                <a href="productos.html" class="active">Productos</a>
+                <a href="index.html#caracteristicas">Valores</a>
+                <a href="index.html#contacto">Contacto</a>
+                <a href="https://mail.google.com/mail/u/0/#inbox?compose=DmwnWtVcJbQSCtSsRGMRgcnqvgKcsnkZvzqJbdsJxvfmdJZZSZLpJSsPcblTglvkCdCZmmdlglPQ" class="email-link">E-mail</a>
+            </nav>
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Sección Hero de Productos -->
+    <section id="productos-hero">
+        <div class="container">
+            <h1>Nuestros Productos</h1>
+            <h4>Calidad y variedad en materiales para empaque</h4>
+            <p class="hero-description">Descubre nuestra completa gama de productos diseñados para satisfacer todas tus necesidades de empaque y embalaje.</p>
+            <a href="#galeria" class="button hero-button">Explorar productos</a>
+        </div>
+    </section>
+
+    <!-- Sección Galería -->
+    <section id="galeria">
+        <div class="container">
+            <!-- Marcas -->
+            <div class="section-header">
+                <h2>Marcas que Distribuimos</h2>
+                <p class="section-subtitle">Trabajamos con los mejores fabricantes del mercado</p>
+            </div>
+            
+            <div class="marcas-grid">
+                <div class="marca-card">
+                    <img src="tuk_logo_nuevo.png" alt="Logotipo Tuk">
+                    <h3>TUK</h3>
+                    <p>Cintas adhesivas de alta calidad para todo tipo de aplicaciones industriales.</p>
+                </div>
+                <div class="marca-card">
+                    <img src="LOGO_NAVITEK.png" alt="Navitek">
+                    <h3>NAVITEK</h3>
+                    <p>Soluciones innovadoras en materiales de empaque y protección.</p>
+                </div>
+                <div class="marca-card">
+                    <img src="emparler.jpg" alt="Emparler">
+                    <h3>EMPARLER</h3>
+                    <p>Cintas especializadas para requerimientos específicos de la industria.</p>
+                </div>
+            </div>
+
+            <!-- Especificaciones -->
+            <div class="specs-container">
+                <div class="section-header">
+                    <h2>Especificaciones Técnicas</h2>
+                    <p class="section-subtitle">Conoce las características de nuestros productos</p>
+                </div>
+                
+                <div class="specs-grid">
+                    <div class="specs-category">
+                        <div class="category-icon">📦</div>
+                        <h3>Cintas para Empaque</h3>
+                        <ul>
+                            <li>Cinta de 48 mm y 72 mm con adhesivo acrílico o hot melt</li>
+                            <li>Cinta impresa de hasta 3 tintas (48 mm y 72 mm)</li>
+                            <li>Cinta gorila: Con filamentos y sin filamentos</li>
+                            <li>Cinta impresa personalizada</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="specs-category">
+                        <div class="category-icon">🎯</div>
+                        <h3>Cintas Especializadas</h3>
+                        <ul>
+                            <li>Masking Tape para diferentes aplicaciones</li>
+                            <li>Cinta de marcaje de área</li>
+                            <li>Cinta de delimitación y señalización</li>
+                            <li>Cinta frágil para productos delicados</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="specs-category">
+                        <div class="category-icon">🔄</div>
+                        <h3>Película Stretch</h3>
+                        <ul>
+                            <li>Excelente resistencia para distribución y almacenamiento</li>
+                            <li>Características: pulgada, calibre y pies</li>
+                            <li>Diferentes medidas disponibles</li>
+                            <li>Alta calidad al mejor precio</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Productos -->
+            <div class="productos-header">
+                <h2>Catálogo de Productos</h2>
+                <p class="section-subtitle">Selecciona un producto para más información</p>
+            </div>
+
+            <!-- Filtros de Categorías -->
+            <div class="categorias-filtro">
+                <button class="filtro-btn active" data-categoria="todos">Todos los Productos</button>
+                <button class="filtro-btn" data-categoria="stretch">Stretch Film</button>
+                <button class="filtro-btn" data-categoria="fleje">Fleje</button>
+                <button class="filtro-btn" data-categoria="cintas">Cintas Adhesivas</button>
+                <button class="filtro-btn" data-categoria="especiales">Productos Especiales</button>
+            </div>
+
+            <!-- Grid de Productos -->
+            <div class="productos-grid">
+                <!-- Stretch Film -->
+                <div class="producto-card" data-categoria="stretch">
+                    <div class="producto-img">
+                        <img src="imagen1.png" alt="STRETCH FILM MANUAL">
+                        <div class="producto-overlay">
+                            <span class="ver-detalle">Ver detalles</span>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>STRETCH FILM MANUAL</h3>
+                        <p>Ideal para empaque manual de pallets y productos.</p>
+                        <span class="producto-categoria">Stretch Film</span>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="stretch">
+                    <div class="producto-img">
+                        <img src="imagen2.png" alt="STRETCH FILM AUTOMÁTICO">
+                        <div class="producto-overlay">
+                            <span class="ver-detalle">Ver detalles</span>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>STRETCH FILM AUTOMÁTICO</h3>
+                        <p>Para sistemas automatizados de empaque industrial.</p>
+                        <span class="producto-categoria">Stretch Film</span>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="stretch">
+                    <div class="producto-img">
+                        <img src="imagen3.png" alt="STRETCH FILM MANUAL REFORZADO">
+                        <div class="producto-overlay">
+                            <span class="ver-detalle">Ver detalles</span>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>STRETCH FILM REFORZADO</h3>
+                        <p>Reforzado en orillas para mayor resistencia.</p>
+                        <span class="producto-categoria">Stretch Film</span>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="stretch">
+                    <div class="producto-img">
+                        <img src="imagen4.png" alt="STRETCH FILM COLOR">
+                        <div class="producto-overlay">
+                            <span class="ver-detalle">Ver detalles</span>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>STRETCH FILM COLOR</h3>
+                        <p>Disponible en diferentes colores para identificación.</p>
+                        <span class="producto-categoria">Stretch Film</span>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="stretch">
+                    <div class="producto-img">
+                        <img src="imagen5.png" alt="STRETCH FILM CON MANGO">
+                        <div class="producto-overlay">
+                            <span class="ver-detalle">Ver detalles</span>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>STRETCH FILM CON MANGO</h3>
+                        <p>Con mango ergonómico para mayor comodidad.</p>
+                        <span class="producto-categoria">Stretch Film</span>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="stretch">
+                    <div class="producto-img">
+                        <img src="imagen6.png" alt="STRETCH FILM 5">
+                        <div class="producto-overlay">
+                            <span class="ver-detalle">Ver detalles</span>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>STRETCH FILM 5"</h3>
+                        <p>Ancho de 5 pulgadas para aplicaciones específicas.</p>
+                        <span class="producto-categoria">Stretch Film</span>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="stretch">
+                    <div class="producto-img">
+                        <img src="imagen7.png" alt="STRETCH FILM 3">
+                        <div class="producto-overlay">
+                            <span class="ver-detalle">Ver detalles</span>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>STRETCH FILM 3"</h3>
+                        <p>Ancho de 3 pulgadas ideal para pequeños paquetes.</p>
+                        <span class="producto-categoria">Stretch Film</span>
+                    </div>
+                </div>
+
+                <!-- Fleje -->
+                <div class="producto-card" data-categoria="fleje">
+                    <div class="producto-img">
+                        <img src="imagen8.png" alt="FLEJE MANUAL">
+                        <div class="producto-overlay">
+                            <span class="ver-detalle">Ver detalles</span>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>FLEJE MANUAL</h3>
+                        <p>Fleje para aplicaciones manuales de empaque.</p>
+                        <span class="producto-categoria">Fleje</span>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="fleje">
+                    <div class="producto-img">
+                        <img src="imagen9.png" alt="FLEJE SEMI-AUTOMÁTICO">
+                        <div class="producto-overlay">
+                            <span class="ver-detalle">Ver detalles</span>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>FLEJE SEMI-AUTOMÁTICO</h3>
+                        <p>Para sistemas semi-automáticos de flejado.</p>
+                        <span class="producto-categoria">Fleje</span>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="fleje">
+                    <div class="producto-img">
+                        <img src="imagen10.PNG" alt="FLEJE POLIÉSTER">
+                        <div class="producto-overlay">
+                            <span class="ver-detalle">Ver detalles</span>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>FLEJE POLIÉSTER</h3>
+                        <p>Fleje de poliéster de alta resistencia.</p>
+                        <span class="producto-categoria">Fleje</span>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="fleje">
+                    <div class="producto-img">
+                        <img src="imagen11.PNG" alt="GRAPA PARA FLEJE">
+                        <div class="producto-overlay">
+                            <span class="ver-detalle">Ver detalles</span>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>GRAPA PARA FLEJE</h3>
+                        <p>Grapas punteadas para sistemas de flejado.</p>
+                        <span class="producto-categoria">Fleje</span>
+                    </div>
+                </div>
+
+                <!-- Cintas Adhesivas -->
+                <div class="producto-card" data-categoria="cintas">
+                    <div class="producto-img">
+                        <img src="imagen12.png" alt="CINTA DE ESPUMA">
+                        <div class="producto-overlay">
+                            <span class="ver-detalle">Ver detalles</span>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>CINTA DE ESPUMA</h3>
+                        <p>Cinta de espuma de polietileno para protección.</p>
+                        <span class="producto-categoria">Cintas Adhesivas</span>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="cintas">
+                    <div class="producto-img">
+                        <img src="imagen13.png" alt="CINTA TUK MODELO 179">
+                        <div class="producto-overlay">
+                            <span class="ver-detalle">Ver detalles</span>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>CINTA TUK MODELO 179</h3>
+                        <p>Cinta adhesiva para empaque general.</p>
+                        <span class="producto-categoria">Cintas Adhesivas</span>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="cintas">
+                    <div class="producto-img">
+                        <img src="imagen13.png" alt="CINTA TUK MODELO 182">
+                        <div class="producto-overlay">
+                            <span class="ver-detalle">Ver detalles</span>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>CINTA TUK MODELO 182</h3>
+                        <p>Cinta adhesiva reforzada para usos intensivos.</p>
+                        <span class="producto-categoria">Cintas Adhesivas</span>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="cintas">
+                    <div class="producto-img">
+                        <img src="imagen14.png" alt="CINTA TUK BARRICADA">
+                        <div class="producto-overlay">
+                            <span class="ver-detalle">Ver detalles</span>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>CINTA TUK BARRICADA</h3>
+                        <p>Cinta de señalización y delimitación de áreas.</p>
+                        <span class="producto-categoria">Cintas Adhesivas</span>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="cintas">
+                    <div class="producto-img">
+                        <img src="imagen16.png" alt="CINTA TUK FRÁGIL">
+                        <div class="producto-overlay">
+                            <span class="ver-detalle">Ver detalles</span>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>CINTA TUK FRÁGIL</h3>
+                        <p>Cinta para identificar paquetes frágiles.</p>
+                        <span class="producto-categoria">Cintas Adhesivas</span>
+                    </div>
+                </div>
+
+                <!-- Productos Especiales -->
+                <div class="producto-card" data-categoria="especiales">
+                    <div class="producto-img">
+                        <img src="imagen21.PNG" alt="CINTA ADHESIVA PAKETAPE">
+                        <div class="producto-overlay">
+                            <span class="ver-detalle">Ver detalles</span>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>CINTA PAKETAPE</h3>
+                        <p>Cinta adhesiva especial para empaque pesado.</p>
+                        <span class="producto-categoria">Productos Especiales</span>
+                    </div>
+                </div>
+
+                <div class="producto-card" data-categoria="especiales">
+                    <div class="producto-img">
+                        <img src="imagen22.PNG" alt="CINTA HUMEDECIBLE PAKETAPE">
+                        <div class="producto-overlay">
+                            <span class="ver-detalle">Ver detalles</span>
+                        </div>
+                    </div>
+                    <div class="producto-info">
+                        <h3>CINTA HUMEDECIBLE</h3>
+                        <p>Cinta que se activa con humedad para sellado especial.</p>
+                        <span class="producto-categoria">Productos Especiales</span>
+                    </div>
+                </div>
+
+                <!-- Continuar con los demás productos siguiendo el mismo patrón -->
+                <!-- Por cuestiones de espacio se muestran solo algunos ejemplos -->
+
+            </div>
+
+            <!-- CTA para Catalogo PDF -->
+            <div class="cta-catalogo">
+                <div class="cta-content">
+                    <h2>Catálogo Completo 2024</h2>
+                    <p>Descarga nuestro catálogo completo con toda la información técnica, precios y especificaciones de todos nuestros productos.</p>
+                    <a href="CATALOGO 2024 DIXI INDUSTRIALES.pdf" download class="button pdf-button">
+                        <span class="pdf-icon">📄</span> Descargar Catálogo PDF
+                    </a>
+                    <p class="cta-note">Archivo PDF - 15MB | Actualizado: Noviembre 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="dixilog1.jpeg" alt="Logotipo DIXI" class="footer-logo">
+                    <p class="footer-tagline">Expertos en suministros y materiales para empaque</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Productos</h4>
+                        <a href="#stretch">Stretch Film</a>
+                        <a href="#fleje">Fleje</a>
+                        <a href="#cintas">Cintas Adhesivas</a>
+                        <a href="#especiales">Productos Especiales</a>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>Contacto</h4>
+                        <a href="https://api.whatsapp.com/send?phone=+525535080603">WhatsApp</a>
+                        <a href="mailto:israel.delacruz@dixi-industriales.com.mx">Email</a>
+                        <a href="index.html#contacto">Formulario</a>
+                    </div>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Síguenos</h4>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/dixi_industrialesmexico" target="_blank" class="social-icon">📸</a>
+                        <a href="https://api.whatsapp.com/send?phone=+525535080603" class="social-icon">💬</a>
+                        <a href="mailto:israel.delacruz@dixi-industriales.com.mx" class="social-icon">📧</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 DIXI Industriales. Todos los derechos reservados.</p>
+                <p class="credits">Página elaborada por I'm Proya Code</p>
+                <a href="#" class="privacy-link">Aviso de Privacidad</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Menú móvil
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav');
+            
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    nav.classList.toggle('active');
+                    menuToggle.classList.toggle('active');
+                });
+            }
+            
+            // Cerrar menú al hacer clic en enlace
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    nav.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                });
+            });
+            
+            // Filtro de productos
+            const filtroBtns = document.querySelectorAll('.filtro-btn');
+            const productoCards = document.querySelectorAll('.producto-card');
+            
+            filtroBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remover clase active de todos los botones
+                    filtroBtns.forEach(b => b.classList.remove('active'));
+                    // Agregar clase active al botón clickeado
+                    this.classList.add('active');
+                    
+                    const categoria = this.getAttribute('data-categoria');
+                    
+                    // Filtrar productos
+                    productoCards.forEach(card => {
+                        if (categoria === 'todos' || card.getAttribute('data-categoria') === categoria) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 10);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+            
+            // Efecto hover en productos
+            productoCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+                
+                // Click para ver detalles
+                card.addEventListener('click', function() {
+                    const productName = this.querySelector('h3').textContent;
+                    const productCategory = this.querySelector('.producto-categoria').textContent;
+                    alert(`Producto: ${productName}\nCategoría: ${productCategory}\n\nPara más información, contacta a nuestro equipo de ventas.`);
+                });
+            });
+            
+            // Scroll suave para enlaces internos
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
+                    
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
