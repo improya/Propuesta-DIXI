@@ -2,13 +2,13 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Productos - DIXI | Materiales para Empaque</title>
     <link rel="icon" href="dixilog.jpeg" type="image/jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        /* ===== VARIABLES CSS FUTURISTAS ===== */
+        /* ===== VARIABLES CSS - OPTIMIZADAS ===== */
         :root {
             --primary-color: #db1616;
             --primary-dark: #a81010;
@@ -19,25 +19,18 @@
             --dark-gray: #666666;
             --white: #ffffff;
             --black: #1b1b1b;
-            --neon-glow: 0 0 10px rgba(219, 22, 22, 0.7), 0 0 20px rgba(219, 22, 22, 0.5), 0 0 30px rgba(219, 22, 22, 0.3);
-            --neon-glow-light: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 255, 255, 0.6);
+            --neon-glow: 0 0 10px rgba(219, 22, 22, 0.7), 0 0 20px rgba(219, 22, 22, 0.5);
+            --neon-glow-light: 0 0 15px rgba(255, 255, 255, 0.8);
             --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.2);
-            --shadow-large: 0 15px 40px rgba(0, 0, 0, 0.15);
             --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-slow: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
             --border-radius: 12px;
-            --border-radius-sm: 8px;
             --border-radius-lg: 20px;
-            --section-padding: 120px 0;
-            --header-height: 90px;
-            --glass-bg: rgba(255, 255, 255, 0.1);
-            --glass-border: rgba(255, 255, 255, 0.2);
-            --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-            --card-shadow-hover: 0 20px 50px rgba(0, 0, 0, 0.2);
+            --header-height: 80px;
+            --container-width: min(92%, 1400px);
         }
 
-        /* ===== RESET Y CONFIGURACIÓN GENERAL ===== */
+        /* ===== RESET Y CONFIGURACIÓN ===== */
         * {
             margin: 0;
             padding: 0;
@@ -49,206 +42,56 @@
         }
 
         body {
-            font-family: 'Exo 2', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            line-height: 1.7;
+            font-family: 'Exo 2', sans-serif;
+            line-height: 1.6;
             color: var(--secondary-color);
-            background-color: var(--white);
-            overflow-x: hidden;
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            overflow-x: hidden;
         }
 
         .container {
-            width: 90%;
-            max-width: 1400px;
+            width: var(--container-width);
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
 
-        /* ===== ANIMACIONES FUTURISTAS ===== */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-
-        @keyframes slideInLeft {
-            from { transform: translateX(-100px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-
-        @keyframes slideInRight {
-            from { transform: translateX(100px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-
-        @keyframes slideInUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 0 5px rgba(219, 22, 22, 0.5); }
-            50% { box-shadow: 0 0 20px rgba(219, 22, 22, 0.8); }
-        }
-
-        @keyframes shine {
-            to { background-position: 200% center; }
-        }
-
-        @keyframes rotate3d {
-            0% { transform: perspective(1000px) rotateY(0deg); }
-            100% { transform: perspective(1000px) rotateY(360deg); }
-        }
-
-        /* ===== TIPOGRAFÍA FUTURISTA ===== */
+        /* ===== TIPOGRAFÍA ===== */
         h1, h2, h3, h4 {
             font-weight: 700;
             line-height: 1.2;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         h1 {
-            font-size: 4rem;
-            letter-spacing: -0.5px;
+            font-size: clamp(2.2rem, 6vw, 4rem);
             font-family: 'Orbitron', sans-serif;
-            background: linear-gradient(90deg, var(--primary-color), var(--primary-light), var(--primary-color));
-            background-size: 200% auto;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: shine 3s linear infinite;
         }
 
         h2 {
-            font-size: 3rem;
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            font-family: 'Orbitron', sans-serif;
             position: relative;
             display: inline-block;
-            font-family: 'Orbitron', sans-serif;
         }
 
         h2::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -8px;
             left: 0;
-            width: 80px;
+            width: 70px;
             height: 4px;
             background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
             border-radius: 2px;
-            animation: pulse 2s infinite;
         }
 
-        h3 {
-            font-size: 2.2rem;
-        }
-
-        h4 {
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-
-        p {
-            margin-bottom: 1.5rem;
-            font-size: 1.15rem;
-            color: var(--dark-gray);
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: var(--transition);
-        }
-
-        /* ===== BOTONES FUTURISTAS ===== */
-        .button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            padding: 18px 40px;
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-            color: var(--white);
-            border-radius: var(--border-radius);
-            font-weight: 600;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: none;
-            cursor: pointer;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            font-family: 'Orbitron', sans-serif;
-            box-shadow: 0 5px 15px rgba(219, 22, 22, 0.3);
-        }
-
-        .button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.7s ease;
-            z-index: -1;
-        }
-
-        .button:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--neon-glow);
-        }
-
-        .button:hover::before {
-            left: 100%;
-        }
-
-        .button:active {
-            transform: translateY(-2px);
-        }
-
-        .whatsapp-icon {
-            font-size: 1.4rem;
-        }
-
-        /* ===== BOTÓN DE WHATSAPP FLOTANTE ===== */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            z-index: 999;
-            box-shadow: var(--neon-glow-light);
-            animation: float 3s ease-in-out infinite;
-            transition: var(--transition);
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(37, 211, 102, 0.8);
-        }
-
-        /* ===== HEADER FUTURISTA ===== */
+        /* ===== HEADER ===== */
         header {
-            background-color: rgba(255, 255, 255, 0.95);
+            background: rgba(255,255,255,0.98);
             backdrop-filter: blur(10px);
             box-shadow: var(--shadow);
             position: fixed;
@@ -259,81 +102,33 @@
             height: var(--header-height);
             display: flex;
             align-items: center;
-            border-bottom: 1px solid rgba(219, 22, 22, 0.1);
         }
 
         header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100%;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
         }
 
         .logo-pequeño {
-            height: 55px;
+            height: clamp(45px, 6vw, 55px);
             width: auto;
             transition: var(--transition);
-            filter: drop-shadow(0 0 5px rgba(219, 22, 22, 0.5));
         }
 
-        .logo-pequeño:hover {
-            transform: scale(1.1) rotate(5deg);
-            filter: drop-shadow(0 0 10px rgba(219, 22, 22, 0.8));
-        }
-
-        /* ===== NAVEGACIÓN FUTURISTA ===== */
+        /* ===== NAVEGACIÓN ===== */
         nav {
             display: flex;
             align-items: center;
-            gap: 35px;
+            gap: 30px;
         }
 
         nav a {
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1rem;
             position: relative;
-            padding: 8px 0;
+            padding: 6px 0;
             color: var(--secondary-color);
-            font-family: 'Exo 2', sans-serif;
-        }
-
-        nav a::before {
-            content: '>';
-            position: absolute;
-            left: -15px;
-            opacity: 0;
-            color: var(--primary-color);
-            transition: var(--transition);
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
-            border-radius: 2px;
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--primary-color);
-        }
-
-        nav a:hover::before {
-            opacity: 1;
-            left: -10px;
-        }
-
-        nav a:hover::after {
-            width: 100%;
         }
 
         nav a.active {
@@ -341,171 +136,150 @@
         }
 
         nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
             width: 100%;
+            height: 3px;
+            background: var(--primary-color);
         }
 
         .email-link {
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-            color: var(--white) !important;
-            padding: 12px 24px !important;
-            border-radius: var(--border-radius-sm);
-            box-shadow: 0 5px 15px rgba(219, 22, 22, 0.3);
+            background: var(--primary-color);
+            color: white !important;
+            padding: 10px 20px !important;
+            border-radius: 8px;
         }
 
-        .email-link:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--neon-glow);
-        }
-
-        .email-link::after {
-            display: none;
-        }
-
-        /* ===== MENÚ MÓVIL FUTURISTA ===== */
+        /* ===== MENÚ MÓVIL ===== */
         .menu-toggle {
             display: none;
             flex-direction: column;
-            justify-content: space-between;
             width: 30px;
             height: 21px;
             background: transparent;
             border: none;
             cursor: pointer;
-            padding: 0;
-            z-index: 1001;
-            position: relative;
         }
 
         .menu-toggle span {
             display: block;
             width: 100%;
             height: 3px;
-            background-color: var(--primary-color);
-            border-radius: 3px;
+            background: var(--primary-color);
             transition: var(--transition);
-            position: relative;
         }
 
         .menu-toggle span:nth-child(2) {
             width: 70%;
-            margin-left: auto;
         }
 
-        .menu-toggle.active span:nth-child(1) {
-            transform: translateY(9px) rotate(45deg);
-        }
-
-        .menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-            transform: translateX(-10px);
-        }
-
-        .menu-toggle.active span:nth-child(3) {
-            transform: translateY(-9px) rotate(-45deg);
-        }
-
-        /* ===== HERO DE PRODUCTOS FUTURISTA ===== */
+        /* ===== HERO ===== */
         #productos-hero {
-            min-height: 80vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(219, 22, 22, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(0, 0, 0, 0.1) 0%, transparent 50%),
-                linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9)), 
-                url('productos-hero.jpg') center/cover no-repeat fixed;
-            color: var(--white);
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)), url('productos-hero.jpg') center/cover fixed;
+            color: white;
             text-align: center;
             padding-top: var(--header-height);
             position: relative;
             overflow: hidden;
         }
 
-        #productos-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(219, 22, 22, 0.2), transparent 70%);
-            z-index: 0;
-        }
-
-        #productos-hero .container {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
-        }
-
         #productos-hero h1 {
-            font-size: 4.5rem;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
             margin-bottom: 20px;
-            animation: fadeInDown 1s ease-out, shine 3s linear infinite;
         }
 
         #productos-hero h4 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
             font-weight: 300;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease-out 0.3s both;
         }
 
-        #productos-hero .hero-description {
-            font-size: 1.3rem;
-            margin-bottom: 40px;
-            color: rgba(255, 255, 255, 0.8);
-            animation: fadeInUp 1s ease-out 0.6s both;
-            line-height: 1.6;
+        .hero-description {
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
             max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 20px auto 30px;
+            color: rgba(255,255,255,0.9);
         }
 
-        /* ===== GALERÍA FUTURISTA ===== */
-        #galeria {
-            padding: 120px 0 80px;
-            background-color: var(--white);
-            min-height: 100vh;
-            position: relative;
-            overflow: hidden;
+        .button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 35px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Orbitron', sans-serif;
         }
 
-        #galeria::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(219, 22, 22, 0.05) 0%, transparent 70%);
+        .button:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--neon-glow);
+        }
+
+        /* ===== WHATSAPP FLOTANTE ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
             border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            z-index: 999;
+            box-shadow: 0 0 20px rgba(37,211,102,0.5);
+            animation: float 3s ease infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* ===== GALERÍA - CORREGIDO: SIN SUPERPOSICIÓN ===== */
+        #galeria {
+            padding: 100px 0 60px;
+            background: var(--white);
+            position: relative;
         }
 
         #galeria .container {
-            background-color: var(--white);
-            padding: 60px 50px;
+            background: white;
+            padding: 50px 40px;
             border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow-large);
-            margin-top: 40px;
-            position: relative;
-            z-index: 1;
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow);
+            margin-top: 20px;
         }
 
-        #galeria h1 {
-            font-size: 3rem;
-            color: var(--secondary-color);
-            margin-bottom: 20px;
+        .section-header {
             text-align: center;
-            position: relative;
-            padding-bottom: 20px;
+            margin-bottom: 50px;
         }
 
-        #galeria h1::after {
+        .section-header h1 {
+            -webkit-text-fill-color: var(--secondary-color);
+            background: none;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-header h1::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -514,161 +288,52 @@
             width: 100px;
             height: 4px;
             background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
-            border-radius: 2px;
-            animation: pulse 2s infinite;
-        }
-
-        #galeria h2, #galeria h3 {
-            text-align: center;
-            margin: 30px 0;
-        }
-
-        #galeria h2 {
-            color: var(--secondary-color);
-        }
-
-        #galeria h3 {
-            color: var(--dark-gray);
-            font-weight: 400;
-        }
-
-        /* ===== SECCIÓN HEADER ===== */
-        .section-header {
-            text-align: center;
-            margin-bottom: 80px;
-            animation: fadeInDown 1s ease-out;
         }
 
         .section-subtitle {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             color: var(--dark-gray);
-            margin-top: 15px;
-            animation: fadeInUp 1s ease-out 0.2s both;
         }
 
-        /* ===== MARCAS FUTURISTAS ===== */
-        .marcas-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin: 60px 0;
-            animation: fadeIn 1.5s ease-out;
-        }
-
-        .marca-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            padding: 50px 30px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: var(--transition-slow);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .marca-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
-            animation: glow 2s infinite;
-        }
-
-        .marca-card:hover {
-            transform: translateY(-15px) scale(1.03);
-            box-shadow: var(--neon-glow);
-        }
-
-        .marca-card img {
-            height: 80px;
-            width: auto;
-            margin-bottom: 25px;
-            filter: grayscale(100%);
-            opacity: 0.8;
-            transition: var(--transition);
-        }
-
-        .marca-card:hover img {
-            filter: grayscale(0%);
-            opacity: 1;
-            transform: scale(1.1);
-        }
-
-        .marca-card h3 {
-            color: var(--primary-dark);
-            margin-bottom: 20px;
-            font-family: 'Orbitron', sans-serif;
-        }
-
-        .marca-card p {
-            color: var(--dark-gray);
-            line-height: 1.7;
-            margin-bottom: 0;
-        }
-
-        /* ===== ESPECIFICACIONES FUTURISTAS ===== */
+        /* ===== ESPECIFICACIONES - ESPACIADO CORREGIDO ===== */
         .specs-container {
-            margin: 100px 0;
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--light-gray) 0%, #f8f9fa 100%);
+            margin: 40px 0 70px;
+            padding: 50px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             border-radius: var(--border-radius-lg);
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--shadow-large);
-        }
-
-        .specs-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
-            animation: glow 2s infinite;
         }
 
         .specs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-            animation: fadeIn 1.5s ease-out;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
 
         .specs-category {
-            background: var(--white);
-            padding: 50px 40px;
+            background: white;
+            padding: 40px 30px;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
-            transition: var(--transition-slow);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid var(--medium-gray);
+            transition: var(--transition);
+            height: 100%;
         }
 
         .specs-category:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--neon-glow-light);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
         }
 
         .category-icon {
-            font-size: 3.5rem;
-            margin-bottom: 25px;
-            display: block;
+            font-size: 2.8rem;
             color: var(--primary-color);
-            animation: float 3s ease-in-out infinite;
+            margin-bottom: 20px;
         }
 
         .specs-category h3 {
             color: var(--primary-dark);
-            margin-bottom: 25px;
-            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
         }
 
         .specs-category ul {
@@ -676,17 +341,9 @@
         }
 
         .specs-category li {
-            padding: 12px 0;
-            padding-left: 30px;
+            padding: 8px 0 8px 25px;
             position: relative;
             color: var(--dark-gray);
-            line-height: 1.6;
-            transition: var(--transition);
-        }
-
-        .specs-category li:hover {
-            color: var(--primary-color);
-            transform: translateX(5px);
         }
 
         .specs-category li::before {
@@ -695,106 +352,110 @@
             left: 0;
             color: var(--primary-color);
             font-weight: bold;
-            font-size: 1.2rem;
         }
 
-        /* ===== PRODUCTOS FUTURISTAS ===== */
-        .productos-header {
-            text-align: center;
-            margin: 100px 0 50px;
-            animation: fadeInDown 1s ease-out;
-        }
-
+        /* ===== FILTROS - SIN DESBORDAMIENTO ===== */
         .categorias-filtro {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 20px;
-            margin-bottom: 60px;
-            padding: 30px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
+            gap: 15px;
+            margin: 40px 0 50px;
+            padding: 25px;
+            background: rgba(255,255,255,0.9);
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
-            animation: fadeInUp 1s ease-out;
         }
 
         .filtro-btn {
-            padding: 15px 30px;
-            background: rgba(255, 255, 255, 0.8);
+            padding: 12px 28px;
+            background: white;
             border: 2px solid var(--medium-gray);
             border-radius: 50px;
             font-weight: 600;
             color: var(--dark-gray);
             cursor: pointer;
             transition: var(--transition);
-            font-family: 'Exo 2', sans-serif;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            white-space: nowrap;
         }
 
         .filtro-btn:hover {
-            background: rgba(219, 22, 22, 0.1);
-            border-color: var(--primary-light);
+            border-color: var(--primary-color);
             color: var(--primary-color);
             transform: translateY(-3px);
         }
 
         .filtro-btn.active {
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            background: var(--primary-color);
             border-color: var(--primary-color);
-            color: var(--white);
-            box-shadow: 0 5px 15px rgba(219, 22, 22, 0.3);
+            color: white;
         }
 
-        .filtro-btn.active:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--neon-glow);
-        }
-
+        /* ===== GRID DE PRODUCTOS - CORREGIDO: ESPACIADO OPTIMO ===== */
         .productos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 40px;
-            margin-bottom: 100px;
-            animation: fadeIn 1.5s ease-out;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        @media (max-width: 1200px) {
+            .productos-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .productos-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .productos-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .producto-card {
-            background: var(--white);
+            background: white;
             border-radius: var(--border-radius);
             overflow: hidden;
-            box-shadow: var(--card-shadow);
-            transition: var(--transition-slow);
-            opacity: 1;
-            transform: translateY(0);
-            cursor: pointer;
-            position: relative;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
             border: 1px solid var(--medium-gray);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .producto-card:hover {
-            transform: translateY(-15px) scale(1.03);
-            box-shadow: var(--card-shadow-hover);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(219,22,22,0.15);
+            border-color: var(--primary-light);
         }
 
         .producto-img {
             position: relative;
-            height: 250px;
+            height: 220px;
             overflow: hidden;
-            background: linear-gradient(135deg, #f5f5f5, #e8e8e8);
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .producto-img img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-            padding: 30px;
-            transition: var(--transition-slow);
+            padding: 20px;
+            transition: transform 0.5s ease;
         }
 
         .producto-card:hover .producto-img img {
-            transform: scale(1.1);
+            transform: scale(1.08);
         }
 
         .producto-overlay {
@@ -803,13 +464,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(transparent 60%, rgba(0, 0, 0, 0.7));
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
             display: flex;
             align-items: flex-end;
             justify-content: center;
-            padding-bottom: 30px;
+            padding-bottom: 25px;
             opacity: 0;
-            transition: var(--transition);
+            transition: opacity 0.4s ease;
         }
 
         .producto-card:hover .producto-overlay {
@@ -818,96 +479,55 @@
 
         .ver-detalle {
             background: var(--primary-color);
-            color: var(--white);
+            color: white;
             padding: 10px 25px;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 1rem;
-            transition: var(--transition);
             display: flex;
             align-items: center;
             gap: 8px;
-        }
-
-        .ver-detalle:hover {
-            background: var(--primary-dark);
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            font-size: 0.95rem;
         }
 
         .producto-info {
-            padding: 30px;
+            padding: 25px 20px;
+            flex-grow: 1;
         }
 
         .producto-info h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
             color: var(--secondary-color);
             line-height: 1.4;
-            font-family: 'Exo 2', sans-serif;
-        }
-
-        .producto-info p {
-            color: var(--dark-gray);
-            font-size: 1rem;
-            margin-bottom: 20px;
-            line-height: 1.6;
         }
 
         .producto-categoria {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 20px;
-            background: rgba(219, 22, 22, 0.1);
+            display: inline-block;
+            padding: 6px 18px;
+            background: rgba(219,22,22,0.08);
             color: var(--primary-color);
             border-radius: 50px;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            margin-bottom: 10px;
         }
 
-        .producto-categoria i {
-            font-size: 0.8rem;
-        }
-
-        /* ===== CTA CATÁLOGO FUTURISTA ===== */
+        /* ===== CTA CATÁLOGO - SEPARADO CORRECTAMENTE ===== */
         .cta-catalogo {
             background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-            color: var(--white);
-            padding: 80px 60px;
+            color: white;
+            padding: 70px 50px;
             border-radius: var(--border-radius-lg);
-            margin: 100px 0;
+            margin: 40px 0 20px;
             text-align: center;
-            box-shadow: var(--shadow-large);
-            position: relative;
-            overflow: hidden;
-            animation: fadeIn 1.5s ease-out;
-        }
-
-        .cta-catalogo::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('pattern.png') center/cover;
-            opacity: 0.1;
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
         }
 
         .cta-catalogo h2 {
-            color: var(--white);
-            font-size: 2.8rem;
-            margin-bottom: 25px;
+            color: white;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
         }
 
         .cta-catalogo h2::after {
@@ -915,37 +535,19 @@
         }
 
         .cta-catalogo p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.3rem;
-            margin-bottom: 40px;
-            line-height: 1.6;
+            color: rgba(255,255,255,0.95);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
         }
 
         .pdf-button {
-            background: var(--white);
+            background: white;
             color: var(--primary-color);
-            font-size: 1.3rem;
-            padding: 20px 50px;
-            margin-bottom: 25px;
-            font-family: 'Orbitron', sans-serif;
+            padding: 18px 45px;
+            font-size: 1.2rem;
         }
 
-        .pdf-button:hover {
-            color: var(--primary-dark);
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-        }
-
-        .pdf-icon {
-            font-size: 1.4rem;
-        }
-
-        .cta-note {
-            font-size: 1rem !important;
-            color: rgba(255, 255, 255, 0.7) !important;
-            margin: 0;
-        }
-
-        /* ===== FOOTER FRECÓN (SUPER MEJORADO) - IGUAL QUE INDEX ===== */
+        /* ===== FOOTER - EXACTAMENTE COMO LO TENÍAS ORIGINALMENTE ===== */
         footer {
             background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
             color: var(--white);
@@ -984,7 +586,6 @@
             margin-bottom: 70px;
             position: relative;
             z-index: 1;
-            animation: fadeIn 1.5s ease-out;
         }
 
         .footer-brand {
@@ -1017,11 +618,6 @@
             background: radial-gradient(circle, rgba(219, 22, 22, 0.3) 0%, transparent 70%);
             border-radius: 50%;
             animation: pulse 2s infinite;
-        }
-
-        .footer-logo-container:hover .footer-logo {
-            transform: scale(1.1) rotate(5deg);
-            filter: drop-shadow(0 0 15px rgba(219, 22, 22, 0.8));
         }
 
         .footer-tagline {
@@ -1190,7 +786,6 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
             z-index: 1;
-            animation: fadeIn 1.5s ease-out 0.5s both;
         }
 
         .footer-bottom-content {
@@ -1308,24 +903,29 @@
             box-shadow: 0 10px 20px rgba(219, 22, 22, 0.3);
         }
 
-        /* ===== RESPONSIVE DESIGN ===== */
+        /* ===== ANIMACIONES ===== */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .animated {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== RESPONSIVE FOOTER - IGUAL QUE ORIGINAL ===== */
         @media (max-width: 1200px) {
-            h1 {
-                font-size: 3.5rem;
-            }
-            
-            h2 {
-                font-size: 2.8rem;
-            }
-            
-            #productos-hero h1 {
-                font-size: 4rem;
-            }
-            
-            .productos-grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            }
-            
             .footer-grid {
                 grid-template-columns: 1fr 2fr 1fr;
                 gap: 40px;
@@ -1333,32 +933,6 @@
         }
 
         @media (max-width: 992px) {
-            h1 {
-                font-size: 3rem;
-            }
-            
-            h2 {
-                font-size: 2.5rem;
-            }
-            
-            #productos-hero h1 {
-                font-size: 3.5rem;
-            }
-            
-            .specs-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .categorias-filtro {
-                justify-content: flex-start;
-                overflow-x: auto;
-                padding-bottom: 20px;
-            }
-            
-            .filtro-btn {
-                white-space: nowrap;
-            }
-            
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 50px;
@@ -1370,26 +944,25 @@
         }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
+            .footer-links-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-grid {
+                gap: 40px;
             }
             
-            h2 {
-                font-size: 2rem;
+            .social-icons-container {
+                flex-wrap: wrap;
+                justify-content: center;
             }
-            
-            #productos-hero {
-                min-height: 70vh;
-            }
-            
-            #productos-hero h1 {
-                font-size: 3rem;
-            }
-            
-            #productos-hero h4 {
-                font-size: 1.5rem;
-            }
-            
+        }
+
+        /* ===== RESPONSIVE GENERAL ===== */
+        @media (max-width: 992px) {
             .menu-toggle {
                 display: flex;
             }
@@ -1399,17 +972,15 @@
                 top: var(--header-height);
                 left: 0;
                 width: 100%;
-                background: rgba(255, 255, 255, 0.98);
-                backdrop-filter: blur(10px);
+                background: white;
                 flex-direction: column;
-                align-items: center;
-                padding: 40px 20px;
-                gap: 30px;
-                box-shadow: var(--shadow-large);
-                transform: translateY(-100%);
+                padding: 30px;
+                gap: 20px;
+                transform: translateY(-150%);
                 opacity: 0;
                 visibility: hidden;
                 transition: all 0.4s ease;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             }
             
             nav.active {
@@ -1423,65 +994,43 @@
                 text-align: center;
             }
             
-            .marcas-grid {
-                grid-template-columns: 1fr;
+            #galeria .container {
+                padding: 40px 25px;
             }
             
-            .productos-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            .categorias-filtro {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .specs-grid {
+                grid-template-columns: 1fr;
             }
             
             .cta-catalogo {
-                padding: 60px 30px;
+                padding: 50px 30px;
             }
             
             .cta-catalogo h2 {
-                font-size: 2.2rem;
-            }
-            
-            .footer-links-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
+                font-size: 1.8rem;
             }
         }
 
         @media (max-width: 576px) {
-            .container {
-                width: 95%;
-                padding: 0 15px;
-            }
-            
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            h2 {
-                font-size: 1.8rem;
-            }
-            
-            #productos-hero h1 {
-                font-size: 2.5rem;
+            :root {
+                --header-height: 70px;
             }
             
             #galeria .container {
-                padding: 40px 20px;
-            }
-            
-            .productos-grid {
-                grid-template-columns: 1fr;
+                padding: 30px 20px;
             }
             
             .producto-img {
-                height: 220px;
-            }
-            
-            .producto-info {
-                padding: 25px;
-            }
-            
-            .cta-catalogo {
-                margin: 70px 0;
-                padding: 50px 20px;
+                height: 200px;
             }
             
             .whatsapp-float {
@@ -1491,30 +1040,21 @@
                 bottom: 20px;
                 right: 20px;
             }
-            
-            .footer-grid {
-                gap: 40px;
-            }
-            
-            .social-icons-container {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Botón de WhatsApp flotante -->
+    <!-- WhatsApp Float -->
     <a href="https://api.whatsapp.com/send?phone=+525535080603&text=%C2%A1Hola%2C+quiero+m%C3%A1s+informaci%C3%B3n+sobre+tus+productos%21" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Header y Navegación -->
+    <!-- Header -->
     <header>
         <div class="container">
             <div class="logo">
                 <a href="index.html">
-                    <img src="dixilog1.jpeg" alt="Logotipo DIXI" class="logo-pequeño">
+                    <img src="dixilog1.jpeg" alt="DIXI" class="logo-pequeño">
                 </a>
             </div>
             <nav>
@@ -1525,7 +1065,7 @@
                 <a href="index.html#contacto">Contacto</a>
                 <a href="https://mail.google.com/mail/u/0/#inbox?compose=DmwnWtVcJbQSCtSsRGMRgcnqvgKcsnkZvzqJbdsJxvfmdJZZSZLpJSsPcblTglvkCdCZmmdlglPQ" class="email-link">E-mail</a>
             </nav>
-            <button class="menu-toggle" aria-label="Abrir menú">
+            <button class="menu-toggle">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -1533,46 +1073,23 @@
         </div>
     </header>
 
-    <!-- Sección Hero de Productos -->
+    <!-- Hero -->
     <section id="productos-hero">
         <div class="container">
             <h1>Nuestros Productos</h1>
             <h4>Calidad y variedad en materiales para empaque</h4>
             <p class="hero-description">Descubre nuestra completa gama de productos diseñados para satisfacer todas tus necesidades de empaque y embalaje.</p>
-            <a href="#galeria" class="button hero-button">
+            <a href="#galeria" class="button">
                 <i class="fas fa-box-open"></i> Explorar productos
             </a>
         </div>
     </section>
 
-    <!-- Sección Galería -->
+    <!-- ===== GALERÍA DE PRODUCTOS - CORREGIDO: AGREGADAS LAS ETIQUETAS QUE FALTABAN ===== -->
     <section id="galeria">
         <div class="container">
-            <!-- Marcas -->
-            <div class="section-header">
-                <h2>Marcas que Distribuimos</h2>
-                <p class="section-subtitle">Trabajamos con los mejores fabricantes del mercado</p>
-            </div>
-            
-            <div class="marcas-grid">
-                <div class="marca-card">
-                    <img src="tuk_logo_nuevo.png" alt="Logotipo Tuk">
-                    <h3>TUK</h3>
-                    <p>Cintas adhesivas de alta calidad para todo tipo de aplicaciones industriales.</p>
-                </div>
-                <div class="marca-card">
-                    <img src="LOGO_NAVITEK.png" alt="Navitek">
-                    <h3>NAVITEK</h3>
-                    <p>Soluciones innovadoras en materiales de empaque y protección.</p>
-                </div>
-                <div class="marca-card">
-                    <img src="emparler.jpg" alt="Emparler">
-                    <h3>EMPARLER</h3>
-                    <p>Cintas especializadas para requerimientos específicos de la industria.</p>
-                </div>
-            </div>
 
-            <!-- Especificaciones -->
+            <!-- Especificaciones Técnicas -->
             <div class="specs-container">
                 <div class="section-header">
                     <h2>Especificaciones Técnicas</h2>
@@ -1615,380 +1132,172 @@
                 </div>
             </div>
 
-            <!-- Productos -->
-            <div class="productos-header">
-                <h2>Catálogo de Productos</h2>
-                <p class="section-subtitle">Selecciona un producto para más información</p>
-            </div>
-
-            <!-- Filtros de Categorías -->
+            <!-- Filtros -->
             <div class="categorias-filtro">
-                <button class="filtro-btn active" data-categoria="todos">
-                    <i class="fas fa-boxes"></i> Todos los Productos
+                <button class="filtro-btn active" data-filter="all">
+                    <i class="fas fa-boxes"></i> Todos
                 </button>
-                <button class="filtro-btn" data-categoria="stretch">
-                    <i class="fas fa-film"></i> Stretch Film
+                <button class="filtro-btn" data-filter="stretch">
+                    <i class="fas fa-film"></i> Stretch
                 </button>
-                <button class="filtro-btn" data-categoria="fleje">
+                <button class="filtro-btn" data-filter="fleje">
                     <i class="fas fa-bolt"></i> Fleje
                 </button>
-                <button class="filtro-btn" data-categoria="cintas">
-                    <i class="fas fa-tape"></i> Cintas Adhesivas
+                <button class="filtro-btn" data-filter="cintas">
+                    <i class="fas fa-tape"></i> Cintas
                 </button>
-                <button class="filtro-btn" data-categoria="especiales">
-                    <i class="fas fa-star"></i> Productos Especiales
+                <button class="filtro-btn" data-filter="especiales">
+                    <i class="fas fa-star"></i> Especiales
                 </button>
             </div>
 
             <!-- Grid de Productos -->
             <div class="productos-grid">
-                <!-- Stretch Film -->
-                <div class="producto-card" data-categoria="stretch">
-                    <div class="producto-img">
-                        <img src="imagen1.png" alt="STRETCH FILM MANUAL">
-                        <div class="producto-overlay">
-                            <span class="ver-detalle">
-                                <i class="fas fa-eye"></i> Ver detalles
-                            </span>
-                        </div>
-                    </div>
-                    <div class="producto-info">
-                        <h3>STRETCH FILM MANUAL</h3>
-                        <p>Ideal para empaque manual de pallets y productos.</p>
-                        <span class="producto-categoria">
-                            <i class="fas fa-film"></i> Stretch Film
-                        </span>
-                    </div>
+                <!-- STRETCH (7 productos) -->
+                <div class="producto-card stretch">
+                    <div class="producto-img"><img src="imagen1.png" alt="STRETCH FILM MANUAL"><div class="producto-overlay"><span class="ver-detalle">Ver detalles</span></div></div>
+                    <div class="producto-info"><span class="producto-categoria">STRETCH</span><h3>STRETCH FILM MANUAL</h3></div>
+                </div>
+                <div class="producto-card stretch">
+                    <div class="producto-img"><img src="imagen2.png" alt="STRETCH FILM AUTOMÁTICO"><div class="producto-overlay"><span class="ver-detalle">Ver detalles</span></div></div>
+                    <div class="producto-info"><span class="producto-categoria">STRETCH</span><h3>STRETCH FILM AUTOMÁTICO</h3></div>
+                </div>
+                <div class="producto-card stretch">
+                    <div class="producto-img"><img src="imagen2.png" alt="STRETCH REFORZADO"><div class="producto-overlay"><span class="ver-detalle">Ver detalles</span></div></div>
+                    <div class="producto-info"><span class="producto-categoria">STRETCH</span><h3>STRETCH REFORZADO ORILLAS</h3></div>
+                </div>
+                <div class="producto-card stretch">
+                    <div class="producto-img"><img src="imagen4.png" alt="STRETCH COLOR"><div class="producto-overlay"><span class="ver-detalle">Ver detalles</span></div></div>
+                    <div class="producto-info"><span class="producto-categoria">STRETCH</span><h3>STRETCH FILM COLOR</h3></div>
+                </div>
+                <div class="producto-card stretch">
+                    <div class="producto-img"><img src="imagen5.png" alt="STRETCH CON MANGO"><div class="producto-overlay"><span class="ver-detalle">Ver detalles</span></div></div>
+                    <div class="producto-info"><span class="producto-categoria">STRETCH</span><h3>STRETCH FILM CON MANGO</h3></div>
+                </div>
+                <div class="producto-card stretch">
+                    <div class="producto-img"><img src="imagen6.png" alt="STRETCH 5"><div class="producto-overlay"><span class="ver-detalle">Ver detalles</span></div></div>
+                    <div class="producto-info"><span class="producto-categoria">STRETCH</span><h3>STRETCH FILM 5"</h3></div>
+                </div>
+                <div class="producto-card stretch">
+                    <div class="producto-img"><img src="imagen7.png" alt="STRETCH 3"><div class="producto-overlay"><span class="ver-detalle">Ver detalles</span></div></div>
+                    <div class="producto-info"><span class="producto-categoria">STRETCH</span><h3>STRETCH FILM 3"</h3></div>
                 </div>
 
-                <div class="producto-card" data-categoria="stretch">
-                    <div class="producto-img">
-                        <img src="imagen2.png" alt="STRETCH FILM AUTOMÁTICO">
-                        <div class="producto-overlay">
-                            <span class="ver-detalle">
-                                <i class="fas fa-eye"></i> Ver detalles
-                            </span>
-                        </div>
-                    </div>
-                    <div class="producto-info">
-                        <h3>STRETCH FILM AUTOMÁTICO</h3>
-                        <p>Para sistemas automatizados de empaque industrial.</p>
-                        <span class="producto-categoria">
-                            <i class="fas fa-film"></i> Stretch Film
-                        </span>
-                    </div>
+                <!-- FLEJE (4 productos) -->
+                <div class="producto-card fleje">
+                    <div class="producto-img"><img src="imagen8.png" alt="FLEJE MANUAL"><div class="producto-overlay"><span class="ver-detalle">Ver detalles</span></div></div>
+                    <div class="producto-info"><span class="producto-categoria">FLEJE</span><h3>FLEJE MANUAL</h3></div>
+                </div>
+                <div class="producto-card fleje">
+                    <div class="producto-img"><img src="imagen9.png" alt="FLEJE SEMI-AUTOMÁTICO"><div class="producto-overlay"><span class="ver-detalle">Ver detalles</span></div></div>
+                    <div class="producto-info"><span class="producto-categoria">FLEJE</span><h3>FLEJE SEMI-AUTOMÁTICO</h3></div>
+                </div>
+                <div class="producto-card fleje">
+                    <div class="producto-img"><img src="imagen10.PNG" alt="FLEJE POLIÉSTER"><div class="producto-overlay"><span class="ver-detalle">Ver detalles</span></div></div>
+                    <div class="producto-info"><span class="producto-categoria">FLEJE</span><h3>FLEJE POLIÉSTER</h3></div>
+                </div>
+                <div class="producto-card fleje">
+                    <div class="producto-img"><img src="imagen11.PNG" alt="GRAPA"><div class="producto-overlay"><span class="ver-detalle">Ver detalles</span></div></div>
+                    <div class="producto-info"><span class="producto-categoria">FLEJE</span><h3>GRAPA PARA FLEJE PUNTEADA</h3></div>
                 </div>
 
-                <div class="producto-card" data-categoria="stretch">
-                    <div class="producto-img">
-                        <img src="imagen3.png" alt="STRETCH FILM MANUAL REFORZADO">
-                        <div class="producto-overlay">
-                            <span class="ver-detalle">
-                                <i class="fas fa-eye"></i> Ver detalles
-                            </span>
-                        </div>
-                    </div>
-                    <div class="producto-info">
-                        <h3>STRETCH FILM REFORZADO</h3>
-                        <p>Reforzado en orillas para mayor resistencia.</p>
-                        <span class="producto-categoria">
-                            <i class="fas fa-film"></i> Stretch Film
-                        </span>
-                    </div>
+                <!-- ESPECIALES - SOLO 6 PRODUCTOS -->
+                <div class="producto-card especiales">
+                    <div class="producto-img"><img src="imagen12.png" alt="CINTA ESPUMA"><div class="producto-overlay"><span class="ver-detalle">Ver detalles</span></div></div>
+                    <div class="producto-info"><span class="producto-categoria">ESPECIAL</span><h3>CINTA ESPUMA POLIETILENO</h3></div>
+                </div>
+                <div class="producto-card especiales">
+                    <div class="producto-img"><img src="imagen14.png" alt="BARRICADA"><div class="producto-overlay"><span class="ver-detalle">Ver detalles</span></div></div>
+                    <div class="producto-info"><span class="producto-categoria">ESPECIAL</span><h3>CINTA TUK BARRICADA</h3></div>
+                </div>
+                <div class="producto-card especiales">
+                    <div class="producto-img"><img src="imagen16.png" alt="FRÁGIL"><div class="producto-overlay"><span class="ver-detalle">Ver detalles</span></div></div>
+                    <div class="producto-info"><span class="producto-categoria">ESPECIAL</span><h3>CINTA TUK FRÁGIL</h3></div>
+                </div>
+                <div class="producto-card especiales">
+                    <div class="producto-img"><img src="imagen28.png" alt="MARCAJE"><div class="producto-overlay"><span class="ver-detalle">Ver detalles</span></div></div>
+                    <div class="producto-info"><span class="producto-categoria">ESPECIAL</span><h3>CINTA PARLER MARCAJE</h3></div>
+                </div>
+                <div class="producto-card especiales">
+                    <div class="producto-img"><img src="imagen27.png" alt="DUCTO"><div class="producto-overlay"><span class="ver-detalle">Ver detalles</span></div></div>
+                    <div class="producto-info"><span class="producto-categoria">ESPECIAL</span><h3>CINTA PARLER DUCTO</h3></div>
+                </div>
+                <div class="producto-card especiales">
+                    <div class="producto-img"><img src="imagen30.png" alt="DELIMITADORA"><div class="producto-overlay"><span class="ver-detalle">Ver detalles</span></div></div>
+                    <div class="producto-info"><span class="producto-categoria">ESPECIAL</span><h3>CINTA TUK DELIMITADORA</h3></div>
                 </div>
 
-                <div class="producto-card" data-categoria="stretch">
-                    <div class="producto-img">
-                        <img src="imagen4.png" alt="STRETCH FILM COLOR">
-                        <div class="producto-overlay">
-                            <span class="ver-detalle">
-                                <i class="fas fa-eye"></i> Ver detalles
-                            </span>
-                        </div>
-                    </div>
-                    <div class="producto-info">
-                        <h3>STRETCH FILM COLOR</h3>
-                        <p>Disponible en diferentes colores para identificación.</p>
-                        <span class="producto-categoria">
-                            <i class="fas fa-film"></i> Stretch Film
-                        </span>
-                    </div>
+                <!-- CINTAS DE EMPAQUE (13 productos) -->
+                <div class="producto-card cintas">
+                    <div class="producto-img"><img src="imagen13.png" alt="TUK 179"><div class="producto-overlay"><span class="ver-detalle">Ver detalles</span></div></div>
+                    <div class="producto-info"><span class="producto-categoria">CINTAS</span><h3>CINTA TUK MODELO 179</h3></div>
                 </div>
-
-                <div class="producto-card" data-categoria="stretch">
-                    <div class="producto-img">
-                        <img src="imagen5.png" alt="STRETCH FILM CON MANGO">
-                        <div class="producto-overlay">
-                            <span class="ver-detalle">
-                                <i class="fas fa-eye"></i> Ver detalles
-                            </span>
-                        </div>
-                    </div>
-                    <div class="producto-info">
-                        <h3>STRETCH FILM CON MANGO</h3>
-                        <p>Con mango ergonómico para mayor comodidad.</p>
-                        <span class="producto-categoria">
-                            <i class="fas fa-film"></i> Stretch Film
-                        </span>
-                    </div>
+                <div class="producto-card cintas">
+                    <div class="producto-img"><img src="imagen13.png" alt="TUK 182"><div class="producto-overlay"><span class="ver-detalle">Ver detalles</span></div></div>
+                    <div class="producto-info"><span class="producto-categoria">CINTAS</span><h3>CINTA TUK MODELO 182</h3></div>
                 </div>
-
-                <div class="producto-card" data-categoria="stretch">
-                    <div class="producto-img">
-                        <img src="imagen6.png" alt="STRETCH FILM 5">
-                        <div class="producto-overlay">
-                            <span class="ver-detalle">
-                                <i class="fas fa-eye"></i> Ver detalles
-                            </span>
-                        </div>
-                    </div>
-                    <div class="producto-info">
-                        <h3>STRETCH FILM 5"</h3>
-                        <p>Ancho de 5 pulgadas para aplicaciones específicas.</p>
-                        <span class="producto-categoria">
-                            <i class="fas fa-film"></i> Stretch Film
-                        </span>
-                    </div>
+                <div class="producto-card cintas">
+                    <div class="producto-img"><img src="imagen21.PNG" alt="PAKETAPE"><div class="producto-overlay"><span class="ver-detalle">Ver detalles</span></div></div>
+                    <div class="producto-info"><span class="producto-categoria">CINTAS</span><h3>CINTA ADHESIVA PAKETAPE</h3></div>
                 </div>
-
-                <div class="producto-card" data-categoria="stretch">
-                    <div class="producto-img">
-                        <img src="imagen7.png" alt="STRETCH FILM 3">
-                        <div class="producto-overlay">
-                            <span class="ver-detalle">
-                                <i class="fas fa-eye"></i> Ver detalles
-                            </span>
-                        </div>
-                    </div>
-                    <div class="producto-info">
-                        <h3>STRETCH FILM 3"</h3>
-                        <p>Ancho de 3 pulgadas ideal para pequeños paquetes.</p>
-                        <span class="producto-categoria">
-                            <i class="fas fa-film"></i> Stretch Film
-                        </span>
-                    </div>
+                <div class="producto-card cintas">
+                    <div class="producto-img"><img src="imagen22.PNG" alt="PAKETAPE HUMEDECIBLE"><div class="producto-overlay"><span class="ver-detalle">Ver detalles</span></div></div>
+                    <div class="producto-info"><span class="producto-categoria">CINTAS</span><h3>HUMEDECIBLE PAKETAPE</h3></div>
                 </div>
-
-                <!-- Fleje -->
-                <div class="producto-card" data-categoria="fleje">
-                    <div class="producto-img">
-                        <img src="imagen8.png" alt="FLEJE MANUAL">
-                        <div class="producto-overlay">
-                            <span class="ver-detalle">
-                                <i class="fas fa-eye"></i> Ver detalles
-                            </span>
-                        </div>
-                    </div>
-                    <div class="producto-info">
-                        <h3>FLEJE MANUAL</h3>
-                        <p>Fleje para aplicaciones manuales de empaque.</p>
-                        <span class="producto-categoria">
-                            <i class="fas fa-bolt"></i> Fleje
-                        </span>
-                    </div>
+                <div class="producto-card cintas">
+                    <div class="producto-img"><img src="imagen23.png" alt="PARLER"><div class="producto-overlay"><span class="ver-detalle">Ver detalles</span></div></div>
+                    <div class="producto-info"><span class="producto-categoria">CINTAS</span><h3>CINTA ADHESIVA PARLER</h3></div>
                 </div>
-
-                <div class="producto-card" data-categoria="fleje">
-                    <div class="producto-img">
-                        <img src="imagen9.png" alt="FLEJE SEMI-AUTOMÁTICO">
-                        <div class="producto-overlay">
-                            <span class="ver-detalle">
-                                <i class="fas fa-eye"></i> Ver detalles
-                            </span>
-                        </div>
-                    </div>
-                    <div class="producto-info">
-                        <h3>FLEJE SEMI-AUTOMÁTICO</h3>
-                        <p>Para sistemas semi-automáticos de flejado.</p>
-                        <span class="producto-categoria">
-                            <i class="fas fa-bolt"></i> Fleje
-                        </span>
-                    </div>
+                <div class="producto-card cintas">
+                    <div class="producto-img"><img src="imagen24.png" alt="PARLER CANELA"><div class="producto-overlay"><span class="ver-detalle">Ver detalles</span></div></div>
+                    <div class="producto-info"><span class="producto-categoria">CINTAS</span><h3>CINTA PARLER CANELA/TRANS.</h3></div>
                 </div>
-
-                <div class="producto-card" data-categoria="fleje">
-                    <div class="producto-img">
-                        <img src="imagen10.PNG" alt="FLEJE POLIÉSTER">
-                        <div class="producto-overlay">
-                            <span class="ver-detalle">
-                                <i class="fas fa-eye"></i> Ver detalles
-                            </span>
-                        </div>
-                    </div>
-                    <div class="producto-info">
-                        <h3>FLEJE POLIÉSTER</h3>
-                        <p>Fleje de poliéster de alta resistencia.</p>
-                        <span class="producto-categoria">
-                            <i class="fas fa-bolt"></i> Fleje
-                        </span>
-                    </div>
+                <div class="producto-card cintas">
+                    <div class="producto-img"><img src="imagen25.png" alt="PARLER FRÁGIL"><div class="producto-overlay"><span class="ver-detalle">Ver detalles</span></div></div>
+                    <div class="producto-info"><span class="producto-categoria">CINTAS</span><h3>CINTA PARLER FRÁGIL</h3></div>
                 </div>
-
-                <div class="producto-card" data-categoria="fleje">
-                    <div class="producto-img">
-                        <img src="imagen11.PNG" alt="GRAPA PARA FLEJE">
-                        <div class="producto-overlay">
-                            <span class="ver-detalle">
-                                <i class="fas fa-eye"></i> Ver detalles
-                            </span>
-                        </div>
-                    </div>
-                    <div class="producto-info">
-                        <h3>GRAPA PARA FLEJE</h3>
-                        <p>Grapas punteadas para sistemas de flejado.</p>
-                        <span class="producto-categoria">
-                            <i class="fas fa-bolt"></i> Fleje
-                        </span>
-                    </div>
+                <div class="producto-card cintas">
+                    <div class="producto-img"><img src="imagen26.png" alt="PARLER COLOR"><div class="producto-overlay"><span class="ver-detalle">Ver detalles</span></div></div>
+                    <div class="producto-info"><span class="producto-categoria">CINTAS</span><h3>CINTA PARLER COLOR</h3></div>
                 </div>
-
-                <!-- Cintas Adhesivas -->
-                <div class="producto-card" data-categoria="cintas">
-                    <div class="producto-img">
-                        <img src="imagen12.png" alt="CINTA DE ESPUMA">
-                        <div class="producto-overlay">
-                            <span class="ver-detalle">
-                                <i class="fas fa-eye"></i> Ver detalles
-                            </span>
-                        </div>
-                    </div>
-                    <div class="producto-info">
-                        <h3>CINTA DE ESPUMA</h3>
-                        <p>Cinta de espuma de polietileno para protección.</p>
-                        <span class="producto-categoria">
-                            <i class="fas fa-tape"></i> Cintas Adhesivas
-                        </span>
-                    </div>
+                <div class="producto-card cintas">
+                    <div class="producto-img"><img src="imagen17.png" alt="MASKING 111"><div class="producto-overlay"><span class="ver-detalle">Ver detalles</span></div></div>
+                    <div class="producto-info"><span class="producto-categoria">CINTAS</span><h3>MASKING TUK TIPO 111</h3></div>
                 </div>
-
-                <div class="producto-card" data-categoria="cintas">
-                    <div class="producto-img">
-                        <img src="imagen13.png" alt="CINTA TUK MODELO 179">
-                        <div class="producto-overlay">
-                            <span class="ver-detalle">
-                                <i class="fas fa-eye"></i> Ver detalles
-                            </span>
-                        </div>
-                    </div>
-                    <div class="producto-info">
-                        <h3>CINTA TUK MODELO 179</h3>
-                        <p>Cinta adhesiva para empaque general.</p>
-                        <span class="producto-categoria">
-                            <i class="fas fa-tape"></i> Cintas Adhesivas
-                        </span>
-                    </div>
+                <div class="producto-card cintas">
+                    <div class="producto-img"><img src="imagen18.png" alt="MASKING 110"><div class="producto-overlay"><span class="ver-detalle">Ver detalles</span></div></div>
+                    <div class="producto-info"><span class="producto-categoria">CINTAS</span><h3>MASKING TUK TIPO 110</h3></div>
                 </div>
-
-                <div class="producto-card" data-categoria="cintas">
-                    <div class="producto-img">
-                        <img src="imagen13.png" alt="CINTA TUK MODELO 182">
-                        <div class="producto-overlay">
-                            <span class="ver-detalle">
-                                <i class="fas fa-eye"></i> Ver detalles
-                            </span>
-                        </div>
-                    </div>
-                    <div class="producto-info">
-                        <h3>CINTA TUK MODELO 182</h3>
-                        <p>Cinta adhesiva reforzada para usos intensivos.</p>
-                        <span class="producto-categoria">
-                            <i class="fas fa-tape"></i> Cintas Adhesivas
-                        </span>
-                    </div>
+                <div class="producto-card cintas">
+                    <div class="producto-img"><img src="imagen19.png" alt="MASKING 114"><div class="producto-overlay"><span class="ver-detalle">Ver detalles</span></div></div>
+                    <div class="producto-info"><span class="producto-categoria">CINTAS</span><h3>MASKING TUK TIPO 114</h3></div>
                 </div>
-
-                <div class="producto-card" data-categoria="cintas">
-                    <div class="producto-img">
-                        <img src="imagen14.png" alt="CINTA TUK BARRICADA">
-                        <div class="producto-overlay">
-                            <span class="ver-detalle">
-                                <i class="fas fa-eye"></i> Ver detalles
-                            </span>
-                        </div>
-                    </div>
-                    <div class="producto-info">
-                        <h3>CINTA TUK BARRICADA</h3>
-                        <p>Cinta de señalización y delimitación de áreas.</p>
-                        <span class="producto-categoria">
-                            <i class="fas fa-tape"></i> Cintas Adhesivas
-                        </span>
-                    </div>
+                <div class="producto-card cintas">
+                    <div class="producto-img"><img src="imagen20.png" alt="HUMEDECIBLE"><div class="producto-overlay"><span class="ver-detalle">Ver detalles</span></div></div>
+                    <div class="producto-info"><span class="producto-categoria">CINTAS</span><h3>CINTA TUK HUMEDECIBLE</h3></div>
                 </div>
-
-                <div class="producto-card" data-categoria="cintas">
-                    <div class="producto-img">
-                        <img src="imagen16.png" alt="CINTA TUK FRÁGIL">
-                        <div class="producto-overlay">
-                            <span class="ver-detalle">
-                                <i class="fas fa-eye"></i> Ver detalles
-                            </span>
-                        </div>
-                    </div>
-                    <div class="producto-info">
-                        <h3>CINTA TUK FRÁGIL</h3>
-                        <p>Cinta para identificar paquetes frágiles.</p>
-                        <span class="producto-categoria">
-                            <i class="fas fa-tape"></i> Cintas Adhesivas
-                        </span>
-                    </div>
+                <div class="producto-card cintas">
+                    <div class="producto-img"><img src="imagen29.png" alt="MASKING PARLER"><div class="producto-overlay"><span class="ver-detalle">Ver detalles</span></div></div>
+                    <div class="producto-info"><span class="producto-categoria">CINTAS</span><h3>MASKING PARLER</h3></div>
                 </div>
-
-                <!-- Productos Especiales -->
-                <div class="producto-card" data-categoria="especiales">
-                    <div class="producto-img">
-                        <img src="imagen21.PNG" alt="CINTA ADHESIVA PAKETAPE">
-                        <div class="producto-overlay">
-                            <span class="ver-detalle">
-                                <i class="fas fa-eye"></i> Ver detalles
-                            </span>
-                        </div>
-                    </div>
-                    <div class="producto-info">
-                        <h3>CINTA PAKETAPE</h3>
-                        <p>Cinta adhesiva especial para empaque pesado.</p>
-                        <span class="producto-categoria">
-                            <i class="fas fa-star"></i> Productos Especiales
-                        </span>
-                    </div>
-                </div>
-
-                <div class="producto-card" data-categoria="especiales">
-                    <div class="producto-img">
-                        <img src="imagen22.PNG" alt="CINTA HUMEDECIBLE PAKETAPE">
-                        <div class="producto-overlay">
-                            <span class="ver-detalle">
-                                <i class="fas fa-eye"></i> Ver detalles
-                            </span>
-                        </div>
-                    </div>
-                    <div class="producto-info">
-                        <h3>CINTA HUMEDECIBLE</h3>
-                        <p>Cinta que se activa con humedad para sellado especial.</p>
-                        <span class="producto-categoria">
-                            <i class="fas fa-star"></i> Productos Especiales
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Puedes agregar más productos aquí siguiendo el mismo patrón -->
-
             </div>
 
-            <!-- CTA para Catalogo PDF -->
+            <!-- CTA Catálogo -->
             <div class="cta-catalogo">
                 <div class="cta-content">
-                    <h2>Catálogo Completo 2024</h2>
-                    <p>Descarga nuestro catálogo completo con toda la información técnica, precios y especificaciones de todos nuestros productos.</p>
-                    <a href="CATALOGO 2024 DIXI INDUSTRIALES.pdf" download class="button pdf-button">
-                        <i class="fas fa-file-pdf pdf-icon"></i> Descargar Catálogo PDF
+                    <h2>¿Necesitas nuestro catálogo completo?</h2>
+                    <p>Descarga nuestra guía técnica con especificaciones y medidas</p>
+                    <a href="#" class="button pdf-button">
+                        <i class="fas fa-file-pdf"></i> CATÁLOGO PDF
                     </a>
-                    <p class="cta-note">Archivo PDF - 15MB | Actualizado: Noviembre 2024</p>
+                    <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.9;">Actualizado 2026 - Incluye nuevos productos</p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Footer Super Fregón -->
+        </div> <!-- Cierra .container -->
+    </section> <!-- Cierra #galeria -->
+
+    <!-- FOOTER - EXACTAMENTE COMO LO TENÍAS ORIGINALMENTE -->
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -2090,10 +1399,9 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script>
-        // Menú móvil
         document.addEventListener('DOMContentLoaded', function() {
+            // === 1. MENÚ MÓVIL ===
             const menuToggle = document.querySelector('.menu-toggle');
             const nav = document.querySelector('nav');
             
@@ -2104,7 +1412,7 @@
                 });
             }
             
-            // Cerrar menú al hacer clic en enlace
+            // Cerrar menú
             const navLinks = document.querySelectorAll('nav a');
             navLinks.forEach(link => {
                 link.addEventListener('click', function() {
@@ -2112,177 +1420,200 @@
                     menuToggle.classList.remove('active');
                 });
             });
-            
-            // Filtro de productos
+
+            // === 2. FILTRO DE PRODUCTOS - CORREGIDO ===
             const filtroBtns = document.querySelectorAll('.filtro-btn');
             const productoCards = document.querySelectorAll('.producto-card');
             
-            filtroBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    // Remover clase active de todos los botones
-                    filtroBtns.forEach(b => b.classList.remove('active'));
-                    // Agregar clase active al botón clickeado
-                    this.classList.add('active');
-                    
-                    const categoria = this.getAttribute('data-categoria');
-                    
-                    // Filtrar productos
-                    productoCards.forEach(card => {
-                        if (categoria === 'todos' || card.getAttribute('data-categoria') === categoria) {
-                            card.style.display = 'block';
-                            setTimeout(() => {
-                                card.style.opacity = '1';
-                                card.style.transform = 'translateY(0)';
-                            }, 10);
-                        } else {
-                            card.style.opacity = '0';
-                            card.style.transform = 'translateY(20px)';
-                            setTimeout(() => {
-                                card.style.display = 'none';
-                            }, 300);
-                        }
-                    });
-                });
-            });
-            
-            // Efecto hover en productos
-            productoCards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-10px) scale(1.02)';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    if (!this.style.transform.includes('none')) {
-                        this.style.transform = 'translateY(0) scale(1)';
+            // Función para filtrar productos
+            function filtrarProductos(filtro) {
+                productoCards.forEach(card => {
+                    if (filtro === 'all' || card.classList.contains(filtro)) {
+                        card.style.display = 'flex';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 10);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
                     }
                 });
-                
-                // Click para ver detalles
-                card.addEventListener('click', function() {
-                    const productName = this.querySelector('h3').textContent;
-                    const productCategory = this.querySelector('.producto-categoria').textContent;
-                    const modal = document.createElement('div');
-                    modal.style.position = 'fixed';
-                    modal.style.top = '0';
-                    modal.style.left = '0';
-                    modal.style.width = '100%';
-                    modal.style.height = '100%';
-                    modal.style.backgroundColor = 'rgba(0,0,0,0.8)';
-                    modal.style.display = 'flex';
-                    modal.style.justifyContent = 'center';
-                    modal.style.alignItems = 'center';
-                    modal.style.zIndex = '2000';
-                    modal.style.backdropFilter = 'blur(10px)';
-                    
-                    const modalContent = document.createElement('div');
-                    modalContent.style.backgroundColor = 'white';
-                    modalContent.style.padding = '40px';
-                    modalContent.style.borderRadius = '20px';
-                    modalContent.style.maxWidth = '500px';
-                    modalContent.style.width = '90%';
-                    modalContent.style.boxShadow = '0 20px 50px rgba(0,0,0,0.3)';
-                    modalContent.style.animation = 'fadeIn 0.5s ease-out';
-                    
-                    modalContent.innerHTML = `
-                        <h3 style="color: var(--primary-color); margin-bottom: 20px; font-family: 'Orbitron', sans-serif;">${productName}</h3>
-                        <p style="margin-bottom: 20px; color: var(--dark-gray);"><strong>Categoría:</strong> ${productCategory}</p>
-                        <p style="margin-bottom: 30px;">Para obtener más información sobre este producto, precios, especificaciones técnicas o solicitar una cotización, contacta a nuestro equipo de ventas.</p>
-                        <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                            <a href="https://api.whatsapp.com/send?phone=+525535080603&text=Hola,%20quiero%20más%20información%20sobre%20${encodeURIComponent(productName)}" 
-                               class="button" style="background: linear-gradient(135deg, #25D366, #128C7E);">
-                                <i class="fab fa-whatsapp"></i> WhatsApp
-                            </a>
-                            <a href="mailto:israel.delacruz@dixi-industriales.com.mx?subject=Consulta sobre ${encodeURIComponent(productName)}" 
-                               class="button">
-                                <i class="fas fa-envelope"></i> Email
-                            </a>
-                            <button onclick="this.parentElement.parentElement.parentElement.remove()" 
-                                    class="button" style="background: var(--dark-gray);">
-                                Cerrar
-                            </button>
-                        </div>
-                    `;
-                    
-                    modal.appendChild(modalContent);
-                    document.body.appendChild(modal);
-                    
-                    // Cerrar modal al hacer clic fuera
-                    modal.addEventListener('click', function(e) {
-                        if (e.target === this) {
-                            document.body.removeChild(this);
-                        }
-                    });
+            }
+            
+            // Event listeners para filtros
+            filtroBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filtroBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    const filtro = this.getAttribute('data-filter');
+                    filtrarProductos(filtro);
                 });
             });
-            
-            // Scroll suave para enlaces internos
+
+            // === 3. MODAL CON ESPECIFICACIONES OFICIALES - SIN ENTREGA INMEDIATA ===
+            productoCards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    if (e.target.closest('.ver-detalle') || this) {
+                        const productName = this.querySelector('h3')?.textContent.trim() || 'Producto DIXI';
+                        const productCategory = this.querySelector('.producto-categoria')?.textContent || 'General';
+                        
+                        // === DICCIONARIO DE ESPECIFICACIONES OFICIALES ===
+                        const specsDB = {
+                            // STRETCH
+                            'STRETCH FILM MANUAL': 'Película estirable de polietileno de baja densidad de uso manual. Disponible en diferentes medidas y calibres. (Nacional o importado)',
+                            'STRETCH FILM AUTOMÁTICO': 'Película estirable diseñada para el sistema de paletizado de baja y media velocidad. Disponible en diferentes medidas y calibres.',
+                            'STRETCH FILM 3"': 'Película estirable de polietileno de baja densidad. Ancho: 3″ pulgadas. Uso manual.',
+                            'STRETCH FILM 5"': 'Película estirable de polietileno de baja densidad. Ancho: 5″ pulgadas. Uso manual.',
+                            'STRETCH FILM CON MANGO': 'Película de polietileno estirable con mango. Ancho: 5″ pulgadas. Calibre: 80. Pies: 1000. Modelo: MARACA.',
+                            'STRETCH REFORZADO ORILLAS': 'Película estirable de polietileno de baja densidad con orillas reforzadas para mayor resistencia. Uso manual.',
+                            'STRETCH FILM COLOR': 'Película plástica estirable de uso manual con color. Colores disponibles: negro, rojo, azul, naranja, verde y amarillo.',
+                            
+                            // FLEJES
+                            'FLEJE MANUAL': 'Fleje de polietileno de uso manual. Medida: 1/2 pulgada.',
+                            'FLEJE SEMI-AUTOMÁTICO': 'Fleje de polietileno semi automático. Medida: 1/2 Pulgada.',
+                            'FLEJE POLIÉSTER': 'Fleje de poliéster de alta resistencia para aplicaciones industriales. Ideal para cargas pesadas.',
+                            'GRAPA PARA FLEJE PUNTEADA': 'Sello metálico punteado de 1/2 pulgada. Contenido: Bolsa con 1 millar.',
+                            
+                            // ESPECIALES (SOLO 6)
+                            'CINTA ESPUMA POLIETILENO': 'Espuma de polietileno de baja densidad. Medidas: 2 m de ancho por 55 m de largo. Espesor: 0.250" (1/4). Protección para superficies delicadas.',
+                            'CINTA TUK BARRICADA': 'Cinta de señalización y seguridad para delimitar áreas de riesgo. Alta visibilidad.',
+                            'CINTA TUK FRÁGIL': 'Cinta impresa con leyenda "FRÁGIL" para identificación de productos delicados. Adhesivo de alta adherencia.',
+                            'CINTA PARLER MARCAJE': 'Cinta para marcaje y delimitación de áreas industriales. Disponible en varios colores.',
+                            'CINTA PARLER DUCTO': 'Cinta de alta resistencia para usos rudos y reparaciones. Adhesivo reforzado.',
+                            'CINTA TUK DELIMITADORA': 'Cinta para delimitación de áreas y señalización industrial. Alta visibilidad y durabilidad.',
+                            
+                            // CINTAS DE EMPAQUE
+                            'CINTA TUK MODELO 179': 'Cinta adhesiva para empaque. Presentaciones: 48 mm y 72 mm. Adhesivo acrílico o hot melt. Transparente y canela.',
+                            'CINTA TUK MODELO 182': 'Cinta adhesiva para empaque de alta resistencia. Presentaciones: 48 mm y 72 mm. Adhesivo hot melt.',
+                            'CINTA ADHESIVA PAKETAPE': 'Cinta adhesiva para empaque. Disponible en transparente y canela. Adhesivo de calidad industrial.',
+                            'HUMEDECIBLE PAKETAPE': 'Cinta humedecible para empaque. Activación con agua. Ideal para cierres seguros.',
+                            'CINTA ADHESIVA PARLER': 'Cinta adhesiva para empaque de uso industrial. Alta adherencia y resistencia.',
+                            'CINTA PARLER CANELA/TRANS.': 'Cinta adhesiva para empaque. Presentación canela y transparente. Adhesivo acrílico.',
+                            'CINTA PARLER FRÁGIL': 'Cinta impresa con leyenda "FRÁGIL" marca PARLER. Ideal para identificar productos delicados.',
+                            'CINTA PARLER COLOR': 'Cinta adhesiva de color para empaque y codificación. Disponible en varios colores.',
+                            'CINTA TUK HUMEDECIBLE': 'Cinta humedecible para empaque. Activación con agua. Alta resistencia.',
+                            
+                            // MASKING
+                            'MASKING TUK TIPO 111': 'Masking tape para aplicaciones generales y enmascarado. Adhesivo de media adherencia.',
+                            'MASKING TUK TIPO 110': 'Masking tape de alta adherencia para superficies delicadas. Ideal para pintura.',
+                            'MASKING TUK TIPO 114': 'Masking tape resistente a altas temperaturas. Ideal para procesos de pintura industrial.',
+                            'MASKING PARLER': 'Masking tape marca PARLER para enmascarado industrial. Adhesivo de calidad.'
+                        };
+                        
+                        const especificaciones = specsDB[productName] || 'Producto de alta calidad para empaque y embalaje industrial. Contáctanos para especificaciones técnicas detalladas.';
+                        
+                        // Crear modal
+                        const modal = document.createElement('div');
+                        modal.style.cssText = `
+                            position: fixed;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background-color: rgba(0,0,0,0.95);
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            z-index: 2000;
+                            backdrop-filter: blur(10px);
+                            padding: 20px;
+                        `;
+                        
+                        const modalContent = document.createElement('div');
+                        modalContent.style.cssText = `
+                            background: white;
+                            padding: 35px;
+                            border-radius: 20px;
+                            max-width: 600px;
+                            width: 95%;
+                            box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+                            max-height: 80vh;
+                            overflow-y: auto;
+                        `;
+
+                        modalContent.innerHTML = `
+                            <div style="border-bottom: 3px solid #db1616; margin-bottom: 25px; padding-bottom: 15px;">
+                                <h3 style="color: #db1616; font-family: 'Orbitron', sans-serif; font-size: 1.6rem; margin-bottom: 10px;">
+                                    ${productName}
+                                </h3>
+                                <span style="background: rgba(219,22,22,0.1); color: #db1616; padding: 6px 18px; border-radius: 50px; font-size: 0.9rem; font-weight: 600; display: inline-block;">
+                                    <i class="fas fa-tag"></i> ${productCategory}
+                                </span>
+                            </div>
+                            
+                            <div style="background: #f8f9fa; padding: 25px; border-radius: 15px; margin-bottom: 25px; border-left: 6px solid #db1616;">
+                                <h4 style="color: #333; margin-bottom: 15px; font-size: 1.2rem; font-family: 'Orbitron', sans-serif;">
+                                    <i class="fas fa-clipboard-list" style="color: #db1616; margin-right: 10px;"></i> 
+                                    Especificaciones Técnicas
+                                </h4>
+                                <p style="color: #444; line-height: 1.7; font-size: 1.05rem; margin: 0;">
+                                    ${especificaciones}
+                                </p>
+                            </div>
+                            
+                            <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 25px;">
+                                <a href="https://api.whatsapp.com/send?phone=+525535080603&text=Hola,%20quiero%20información%20sobre%20${encodeURIComponent(productName)}%0A%0A${encodeURIComponent(especificaciones)}" 
+                                   target="_blank"
+                                   style="background: linear-gradient(135deg, #25D366, #128C7E); color: white; padding: 14px 25px; border-radius: 12px; text-decoration: none; display: flex; align-items: center; gap: 10px; font-weight: 700; flex: 1; justify-content: center;">
+                                    <i class="fab fa-whatsapp" style="font-size: 1.3rem;"></i> 
+                                    WhatsApp
+                                </a>
+                                <a href="mailto:israel.delacruz@dixi-industriales.com.mx?subject=Consulta: ${encodeURIComponent(productName)}&body=${encodeURIComponent('Producto: ' + productName + '\nCategoría: ' + productCategory + '\nEspecificaciones: ' + especificaciones)}" 
+                                   style="background: #333; color: white; padding: 14px 25px; border-radius: 12px; text-decoration: none; display: flex; align-items: center; gap: 10px; font-weight: 700; flex: 1; justify-content: center;">
+                                    <i class="fas fa-envelope" style="font-size: 1.3rem;"></i> 
+                                    Email
+                                </a>
+                            </div>
+                            
+                            <div style="display: flex; justify-content: center; margin-top: 25px;">
+                                <button id="closeModal" 
+                                        style="background: #6c757d; color: white; border: none; padding: 12px 35px; border-radius: 50px; cursor: pointer; font-weight: 600; font-size: 1rem; display: flex; align-items: center; gap: 10px;">
+                                    <i class="fas fa-times-circle"></i> Cerrar
+                                </button>
+                            </div>
+                        `;
+                        
+                        modal.appendChild(modalContent);
+                        document.body.appendChild(modal);
+                        
+                        modal.querySelector('#closeModal').onclick = () => modal.remove();
+                        modal.onclick = (e) => { if(e.target === modal) modal.remove(); };
+                    }
+                });
+            });
+
+            // === 4. SCROLL SUAVE ===
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     const href = this.getAttribute('href');
-                    if (href === '#') return;
-                    
+                    if (href === '#' || !href) return;
                     e.preventDefault();
                     const target = document.querySelector(href);
                     if (target) {
                         window.scrollTo({
-                            top: target.offsetTop - 80,
+                            top: target.offsetTop - 70,
                             behavior: 'smooth'
                         });
                     }
                 });
             });
-            
-            // Animación de entrada para elementos al hacer scroll
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-            
-            const observer = new IntersectionObserver(function(entries) {
+
+            // === 5. ANIMACIONES ===
+            const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('animated');
                     }
                 });
-            }, observerOptions);
-            
-            // Observar elementos para animar
-            const elementsToAnimate = document.querySelectorAll('.marcas-grid, .specs-grid, .productos-grid, .cta-catalogo, .footer-grid');
-            elementsToAnimate.forEach(element => {
-                observer.observe(element);
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.specs-grid, .productos-grid, .cta-catalogo').forEach(el => {
+                if (el) observer.observe(el);
             });
-        });
-        
-        // Efecto de partículas para el fondo del hero
-        window.addEventListener('DOMContentLoaded', () => {
-            const hero = document.getElementById('productos-hero');
-            if (hero) {
-                const particlesCount = 25;
-                
-                for (let i = 0; i < particlesCount; i++) {
-                    const particle = document.createElement('div');
-                    particle.style.position = 'absolute';
-                    particle.style.width = Math.random() * 5 + 2 + 'px';
-                    particle.style.height = particle.style.width;
-                    particle.style.background = 'rgba(219, 22, 22, 0.5)';
-                    particle.style.borderRadius = '50%';
-                    particle.style.top = Math.random() * 100 + 'vh';
-                    particle.style.left = Math.random() * 100 + 'vw';
-                    particle.style.boxShadow = '0 0 10px rgba(219, 22, 22, 0.5)';
-                    
-                    // Animación
-                    particle.animate([
-                        { transform: 'translateY(0px)', opacity: 0.7 },
-                        { transform: `translateY(${Math.random() * 100 - 50}px) translateX(${Math.random() * 100 - 50}px)`, opacity: 0 }
-                    ], {
-                        duration: Math.random() * 3000 + 2000,
-                        iterations: Infinity,
-                        delay: Math.random() * 2000
-                    });
-                    
-                    hero.appendChild(particle);
-                }
-            }
         });
     </script>
 </body>
