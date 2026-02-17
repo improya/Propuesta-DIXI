@@ -175,18 +175,19 @@
             width: 70%;
         }
 
-        /* ===== HERO ===== */
-        #productos-hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)), url('productos-hero.jpg') center/cover fixed;
-            color: white;
-            text-align: center;
-            padding-top: var(--header-height);
-            position: relative;
-            overflow: hidden;
-        }
+/* ===== HERO ===== */
+#productos-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    /* Bajamos la opacidad a 0.5 para que la foto respire */
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('productos-hero.jpg') center/cover no-repeat fixed;
+    color: white;
+    text-align: center;
+    padding-top: var(--header-height);
+    position: relative;
+    overflow: hidden;
+}
 
         #productos-hero h1 {
             font-size: clamp(2.5rem, 8vw, 4.5rem);
@@ -1045,7 +1046,7 @@
 </head>
 <body>
     <!-- WhatsApp Float -->
-    <a href="https://api.whatsapp.com/send?phone=+525535080603&text=%C2%A1Hola%2C+quiero+m%C3%A1s+informaci%C3%B3n+sobre+tus+productos%21" class="whatsapp-float" target="_blank">
+    <a href="https://api.whatsapp.com/send?phone=+525579535599&text=%C2%A1Hola%2C+quiero+m%C3%A1s+informaci%C3%B3n+sobre+tus+productos%21" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -1074,16 +1075,16 @@
     </header>
 
     <!-- Hero -->
-    <section id="productos-hero">
-        <div class="container">
-            <h1>Nuestros Productos</h1>
-            <h4>Calidad y variedad en materiales para empaque</h4>
-            <p class="hero-description">Descubre nuestra completa gama de productos diseñados para satisfacer todas tus necesidades de empaque y embalaje.</p>
-            <a href="#galeria" class="button">
-                <i class="fas fa-box-open"></i> Explorar productos
-            </a>
-        </div>
-    </section>
+<section id="productos-hero" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('cintaspro.jpg') no-repeat center center / cover fixed !important; height: 100vh !important; display: flex !important; align-items: center !important;">
+    <div class="container">
+        <h1>Nuestros Productos</h1>
+        <h4>Calidad y variedad en materiales para empaque</h4>
+        <p class="hero-description">Descubre nuestra completa gama de productos diseñados para satisfacer todas tus necesidades de empaque y embalaje.</p>
+        <a href="cintaspro.jpg" class="button">
+            <i class="fas fa-box-open"></i> Explorar productos
+        </a>
+    </div>
+</section>
 
     <!-- ===== GALERÍA DE PRODUCTOS - CORREGIDO: AGREGADAS LAS ETIQUETAS QUE FALTABAN ===== -->
     <section id="galeria">
@@ -1101,6 +1102,7 @@
                         <div class="category-icon"><i class="fas fa-tape"></i></div>
                         <h3>Cintas para Empaque</h3>
                         <ul>
+                            <li>Masking Tape para diferentes aplicaciones</li>
                             <li>Cinta de 48 mm y 72 mm con adhesivo acrílico o hot melt</li>
                             <li>Cinta impresa de hasta 3 tintas (48 mm y 72 mm)</li>
                             <li>Cinta gorila: Con filamentos y sin filamentos</li>
@@ -1112,7 +1114,6 @@
                         <div class="category-icon"><i class="fas fa-ruler-combined"></i></div>
                         <h3>Cintas Especializadas</h3>
                         <ul>
-                            <li>Masking Tape para diferentes aplicaciones</li>
                             <li>Cinta de marcaje de área</li>
                             <li>Cinta de delimitación y señalización</li>
                             <li>Cinta frágil para productos delicados</li>
@@ -1314,7 +1315,7 @@
                             <a href="https://www.instagram.com/dixi_industrialesmexico" target="_blank" class="social-icon-3d instagram">
                                 <i class="fab fa-instagram"></i>
                             </a>
-                            <a href="https://api.whatsapp.com/send?phone=+525535080603" class="social-icon-3d whatsapp">
+                            <a href="https://api.whatsapp.com/send?phone=+525578535599" class="social-icon-3d whatsapp">
                                 <i class="fab fa-whatsapp"></i>
                             </a>
                             <a href="mailto:israel.delacruz@dixi-industriales.com.mx" class="social-icon-3d email">
@@ -1332,7 +1333,7 @@
                                 <i class="fas fa-phone-alt"></i>
                             </div>
                             <div class="contact-info-text">
-                                <a href="https://api.whatsapp.com/send?phone=+525535080603">55 3508 0603</a>
+                                <a href="https://api.whatsapp.com/send?phone=+525578535599">55 7853 5599</a>
                             </div>
                         </div>
                         <div class="contact-info-item">
